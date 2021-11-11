@@ -2,9 +2,7 @@
   "name": "disney-world",
   "version": "0.0.0",
   "scripts": {
-    "phase1": "PHASE=1 run-p dev mockserver",
-    "phase2": "PHASE=2 run-p dev mockserver",
-    "phase3": "PHASE=3 run-p dev mockserver",
+    "start": "run-p dev mockserver",
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",

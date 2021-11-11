@@ -1,5 +1,5 @@
 export const CONFIG = {
-  PHASE: parseInt(import.meta.env["MODE"]),
+  ACTIVITY: 1,
   ROUTE: {
     ROOT: "/",
     ANY: "*",
