@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 
 const Styles = styled.div`
@@ -11,12 +11,30 @@ const Styles = styled.div`
 `;
 
 function Activity1() {
+  const [riding, setRiding] = useState<any>(true);
+
+  function ToggleRiding(){
+    setRiding(!riding)
+  }
+
+  function RideDescription(){
+    if(riding){
+      return <strong><span> A person moving down the slide </span></strong>
+    }
+
+    return <span> Person not sliding </span>
+  }
+
   return (
-    <Styles>
+    <>
       <div className="container">
-        Hello from Activity 1 Blizzard Beach
+        <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjemB1JAjmKfSCuQMNFz1X_c4Oc9ExQhEgAJG1svHdDJiDbJKPCTy_uOtTB-u9Gr2xExw&usqp=CAU" />
+        <br/>
+       <RideDescription />
+        <br/>
+        <button onClick = {ToggleRiding}> Toggle Riding </button>
       </div>
-    </Styles>
+    </>
   )
 }
 
