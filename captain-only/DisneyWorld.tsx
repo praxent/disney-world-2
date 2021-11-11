@@ -2,10 +2,36 @@ import * as React from "react";
 import disneyWorld from "./images/disney-world.jpg";
 import {Link} from "react-router-dom";
 import {CONFIG} from "./config";
+import styled from "styled-components";
+
+const Styles = styled.div`
+  .label.magic-kingdom {
+    left: 410px;
+    top: -870px;
+    padding: 10px 25px;
+  }
+  
+  .label.blizzard-beach {
+    left: 120px;
+    top: -290px;
+    padding: 10px 65px;
+  }
+  
+  .label.animal-kingdom {
+    left: -370px;
+    top: -465px;
+    padding: 10px 70px;
+  }
+  
+  .label.epcot {
+    left: 0px;
+    top: -460px;
+  }
+`;
 
 function DisneyWorld() {
   return (
-    <div className="park disney-world flex-column">
+    <Styles className="park disney-world flex-column">
       <div className="flex-row">
         <div className="map-container">
           <img src={disneyWorld} className="map"/>
@@ -17,7 +43,7 @@ function DisneyWorld() {
           </div>
         </div>
       </div>
-    </div>
+    </Styles>
   )
 }
 

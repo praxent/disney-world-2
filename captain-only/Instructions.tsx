@@ -14,6 +14,15 @@ import lottawattaLodge from "./images/lottawatta-lodge.jpg";
 import rainforestCafe from "./images/rainforest-cafe.jpg";
 import space220 from "./images/space-220.jpg";
 
+import spaceshipWindow from "./images/spaceship-window.jpg";
+import zoo from "./images/zoo.jpg";
+import lifeguard from "./images/lifeguard.png";
+import hagrid from "./images/hagrid.jpg";
+
+import krabs from "./images/krabs.jpg";
+
+import disneyFireworks from "./images/disney-fireworks.jpg";
+
 const Styles = styled.div`
   .display-help {
     position: fixed;
@@ -157,14 +166,21 @@ function renderHelpDetails(pathname : string) {
     case CONFIG.ROUTE.ANIMAL_KINGDOM_A3:
       helpDetails = (
         <>
+          <img className="banner" src={zoo} />
           <h2>Requirements</h2>
-          <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+
+          <h3>Task 1: Walking around the Zoo <span className="eta"><img className="clock" src={clock} /> 25 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Make 4 buttons labelled "Visit Lion", "Visit Zebra", "Visit Giraffe", and "Visit Chimpanzee"</li>
+            <li>Using React Router, which is already installed, make each button swap the view of a react router <pre>{"<Outlet>"}</pre> component.</li>
+            <li>Display an image of a Lion, a Zebra, a Giraffe, and a Chimpanzee inside the Outlet</li>
           </ul>
-          <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
+
+          <h3>Task 2: Cage the Animals <span className="eta"><img className="clock" src={clock} /> 20 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Overlay a fence over the Outlet component so the animals don't escape.</li>
+            <li>Find a sound clip online for each animal</li>
+            <li>Using JavaScript AudioElement, play that animal's audio when the button is clicked that enters the route for that animal.</li>
           </ul>
 
           <h3>Task 3: Bonus!</h3>
@@ -174,7 +190,9 @@ function renderHelpDetails(pathname : string) {
 
           <h2>Feature Spotlight</h2>
           <ul>
-            <li><a href="TODO" target="_blank">TODO</a></li>
+            <li><a href="https://reactrouter.com/docs/en/v6/getting-started/overview" target="_blank">React Router</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio" target="_blank">AudioElement</a></li>
+            <li><a href="https://www.zapsplat.com/?s=lion&post_type=music&sound-effect-category-id=" target="_blank">Animal Noise</a></li>
           </ul>
         </>
       );
@@ -250,14 +268,21 @@ function renderHelpDetails(pathname : string) {
     case CONFIG.ROUTE.BLIZZARD_BEACH_A3:
       helpDetails = (
         <>
+          <img className="banner" src={lifeguard} />
           <h2>Requirements</h2>
-          <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+
+          <h3>Task 1: Security Cameras <span className="eta"><img className="clock" src={clock} /> 25 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Make 4 buttons labelled "Cross Country Creek", "Melt Away Bay", "Runoff Rapids", and "Snow Stormers"</li>
+            <li>Using React Router, which is already installed, make each button swap the view of a react router <pre>{"<Outlet>"}</pre> component.</li>
+            <li>Display an image of Cross Country Creek, Melt Away Bay, Runoff Rapids, and Snow Stormers inside the Outlet</li>
           </ul>
-          <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
+
+          <h3>Task 2: Monitor the Customers for Safety <span className="eta"><img className="clock" src={clock} /> 20 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Overlay a security camera over the Outlet component so we can monitor customers to ensure their swimming safety</li>
+            <li>Find a unique sound clip online that represents each of the water types (still water, running water, waterfall, rapids, etc.)</li>
+            <li>Using JavaScript AudioElement, play a unique audio when the button is clicked that enters the route for that security camera location.</li>
           </ul>
 
           <h3>Task 3: Bonus!</h3>
@@ -267,7 +292,9 @@ function renderHelpDetails(pathname : string) {
 
           <h2>Feature Spotlight</h2>
           <ul>
-            <li><a href="TODO" target="_blank">TODO</a></li>
+            <li><a href="https://reactrouter.com/docs/en/v6/getting-started/overview" target="_blank">React Router</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio" target="_blank">AudioElement</a></li>
+            <li><a href="https://www.zapsplat.com/?s=water&post_type=music&sound-effect-category-id=" target="_blank">Water Noise</a></li>
           </ul>
         </>
       );
@@ -343,14 +370,21 @@ function renderHelpDetails(pathname : string) {
     case CONFIG.ROUTE.EPCOT_A3:
       helpDetails = (
         <>
+          <img className="banner" src={spaceshipWindow} />
           <h2>Requirements</h2>
-          <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+
+          <h3>Task 1: Universe of Energy <span className="eta"><img className="clock" src={clock} /> 25 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Make 4 buttons labelled "Visit Earth", "Visit Mars", "Visit Saturn", and "Visit Jupiter"</li>
+            <li>Using React Router, which is already installed, make each button swap the view of a react router <pre>{"<Outlet>"}</pre> component.</li>
+            <li>Display an image of Planet Earth, Mars, Saturn, and Jupiter inside the Outlet</li>
           </ul>
-          <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
+
+          <h3>Task 2: Space Exploration <span className="eta"><img className="clock" src={clock} /> 20 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Overlay a space ship window over the Outlet component so we can look out the windows as we fly by</li>
+            <li>Find a cool space sound clip online for each planet</li>
+            <li>Using JavaScript AudioElement, play a unique audio when the button is clicked that enters the route for that planet.</li>
           </ul>
 
           <h3>Task 3: Bonus!</h3>
@@ -360,7 +394,9 @@ function renderHelpDetails(pathname : string) {
 
           <h2>Feature Spotlight</h2>
           <ul>
-            <li><a href="TODO" target="_blank">TODO</a></li>
+            <li><a href="https://reactrouter.com/docs/en/v6/getting-started/overview" target="_blank">React Router</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio" target="_blank">AudioElement</a></li>
+            <li><a href="https://www.zapsplat.com/?s=space&post_type=music&sound-effect-category-id=" target="_blank">Space Noise</a></li>
           </ul>
         </>
       );
@@ -436,14 +472,21 @@ function renderHelpDetails(pathname : string) {
     case CONFIG.ROUTE.MAGIC_KINGDOM_A3:
       helpDetails = (
         <>
+          <img className="banner" src={hagrid} />
           <h2>Requirements</h2>
-          <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+
+          <h3>Task 1: Magic Lessons <span className="eta"><img className="clock" src={clock} /> 25 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Make 4 buttons labelled "Dark Spell", "Fire Spell", "Water Spell", and "Lightning Spell"</li>
+            <li>Using React Router, which is already installed, make each button swap the view of a react router <pre>{"<Outlet>"}</pre> component.</li>
+            <li>Display an image of Fire, Water, Lightning, and something "Dark Magic" inside the Outlet</li>
           </ul>
-          <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
+
+          <h3>Task 2: Yer a Wizard, Harry <span className="eta"><img className="clock" src={clock} /> 20 min</span></h3>
           <ul>
-            <li>TODO</li>
+            <li>Overlay a wand over the Outlet component so we can cast the spells</li>
+            <li>Find a unique sound clip online that represents each of the spell types</li>
+            <li>Using JavaScript AudioElement, play a unique audio when the button is clicked that enters the route for that spell.</li>
           </ul>
 
           <h3>Task 3: Bonus!</h3>
@@ -453,176 +496,230 @@ function renderHelpDetails(pathname : string) {
 
           <h2>Feature Spotlight</h2>
           <ul>
-            <li><a href="TODO" target="_blank">TODO</a></li>
+            <li><a href="https://reactrouter.com/docs/en/v6/getting-started/overview" target="_blank">React Router</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio" target="_blank">AudioElement</a></li>
+            <li><a href="https://www.zapsplat.com/?s=dark+spell&post_type=music&sound-effect-category-id=" target="_blank">Dark Spell Noise</a></li>
           </ul>
         </>
       );
       break;
     case CONFIG.ROUTE.ANIMAL_KINGDOM:
-      if (CONFIG.PHASE >= 2) {
+      if (CONFIG.ACTIVITY >= 4) {
         helpDetails = (
           <>
+            <img className="banner" src={krabs} />
+
             <h2>Requirements</h2>
-            <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+            <h3>Task 1: Wallet Higher Order Component <span className="eta"><img className="clock" src={clock} /> 45 min</span></h3>
             <ul>
-              <li>TODO</li>
-            </ul>
-            <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
-            <ul>
-              <li>TODO</li>
+              <li>All activities in Disney World require payment.</li>
+              <li>Create a Higher Order Component, called <pre>{"<Wallet>"}</pre> in your park's home directory <pre>/src/animal-kingdom/Wallet</pre></li>
+              <li>This Wallet should have an initial balance of 20 units</li>
+              <li>Wrap the components you built during Activities 1, 2 and 3 such that any button clicked subtracts 1 from the wallet balance in the HOC.</li>
+              <li>If the wallet balance reaches 0, the buttons should no longer be clickable :(</li>
             </ul>
 
-            <h3>Task 3: Bonus!</h3>
+            <h3>Task 2: Bonus!</h3>
             <ul>
               <li>If you finish early, add an additional creative feature or functionality. This will help make your case for the cash prize at the end!</li>
             </ul>
 
             <h2>Feature Spotlight</h2>
             <ul>
-              <li><a href="TODO" target="_blank">TODO</a></li>
+              <li><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank">Higher Order Components</a></li>
             </ul>
           </>
         );
       } else {
         helpDetails = (
           <>
-            Instructions will show up here during Phase 2
+            Instructions will show up here during Activity 4
           </>
         );
       }
       break;
     case CONFIG.ROUTE.BLIZZARD_BEACH:
-      if (CONFIG.PHASE >= 2) {
+      if (CONFIG.ACTIVITY >= 4) {
         helpDetails = (
           <>
+            <img className="banner" src={krabs} />
+
             <h2>Requirements</h2>
-            <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+            <h3>Task 1: Wallet Higher Order Component <span className="eta"><img className="clock" src={clock} /> 45 min</span></h3>
             <ul>
-              <li>TODO</li>
-            </ul>
-            <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
-            <ul>
-              <li>TODO</li>
+              <li>All activities in Disney World require payment.</li>
+              <li>Create a Higher Order Component, called <pre>{"<Wallet>"}</pre> in your park's home directory <pre>/src/blizzard-beach/Wallet</pre></li>
+              <li>This Wallet should have an initial balance of 20 units</li>
+              <li>Wrap the components you built during Activities 1, 2 and 3 such that any button clicked subtracts 1 from the wallet balance in the HOC.</li>
+              <li>If the wallet balance reaches 0, the buttons should no longer be clickable :(</li>
             </ul>
 
-            <h3>Task 3: Bonus!</h3>
+            <h3>Task 2: Bonus!</h3>
             <ul>
               <li>If you finish early, add an additional creative feature or functionality. This will help make your case for the cash prize at the end!</li>
             </ul>
 
             <h2>Feature Spotlight</h2>
             <ul>
-              <li><a href="TODO" target="_blank">TODO</a></li>
+              <li><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank">Higher Order Components</a></li>
             </ul>
           </>
         );
       } else {
         helpDetails = (
           <>
-            Instructions will show up here during Phase 2
+            Instructions will show up here during Activity 4
           </>
         );
       }
       break;
     case CONFIG.ROUTE.EPCOT:
-      if (CONFIG.PHASE >= 2) {
+      if (CONFIG.ACTIVITY >= 4) {
         helpDetails = (
           <>
+            <img className="banner" src={krabs} />
+
             <h2>Requirements</h2>
-            <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+            <h3>Task 1: Wallet Higher Order Component <span className="eta"><img className="clock" src={clock} /> 45 min</span></h3>
             <ul>
-              <li>TODO</li>
-            </ul>
-            <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
-            <ul>
-              <li>TODO</li>
+              <li>All activities in Disney World require payment.</li>
+              <li>Create a Higher Order Component, called <pre>{"<Wallet>"}</pre> in your park's home directory <pre>/src/epcot/Wallet</pre></li>
+              <li>This Wallet should have an initial balance of 20 units</li>
+              <li>Wrap the components you built during Activities 1, 2 and 3 such that any button clicked subtracts 1 from the wallet balance in the HOC.</li>
+              <li>If the wallet balance reaches 0, the buttons should no longer be clickable :(</li>
             </ul>
 
-            <h3>Task 3: Bonus!</h3>
+            <h3>Task 2: Bonus!</h3>
             <ul>
               <li>If you finish early, add an additional creative feature or functionality. This will help make your case for the cash prize at the end!</li>
             </ul>
 
             <h2>Feature Spotlight</h2>
             <ul>
-              <li><a href="TODO" target="_blank">TODO</a></li>
+              <li><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank">Higher Order Components</a></li>
             </ul>
           </>
         );
       } else {
         helpDetails = (
           <>
-            Instructions will show up here during Phase 2
+            Instructions will show up here during Activity 4
           </>
         );
       }
       break;
     case CONFIG.ROUTE.MAGIC_KINGDOM:
-      if (CONFIG.PHASE >= 2) {
+      if (CONFIG.ACTIVITY >= 4) {
         helpDetails = (
           <>
+            <img className="banner" src={krabs} />
+
             <h2>Requirements</h2>
-            <h3>Task 1: TODO <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+            <h3>Task 1: Wallet Higher Order Component <span className="eta"><img className="clock" src={clock} /> 45 min</span></h3>
             <ul>
-              <li>TODO</li>
-            </ul>
-            <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
-            <ul>
-              <li>TODO</li>
+              <li>All activities in Disney World require payment.</li>
+              <li>Create a Higher Order Component, called <pre>{"<Wallet>"}</pre> in your park's home directory <pre>/src/magic-kingdom/Wallet</pre></li>
+              <li>This Wallet should have an initial balance of 20 units</li>
+              <li>Wrap the components you built during Activities 1, 2 and 3 such that any button clicked subtracts 1 from the wallet balance in the HOC.</li>
+              <li>If the wallet balance reaches 0, the buttons should no longer be clickable :(</li>
             </ul>
 
-            <h3>Task 3: Bonus!</h3>
+            <h3>Task 2: Bonus!</h3>
             <ul>
               <li>If you finish early, add an additional creative feature or functionality. This will help make your case for the cash prize at the end!</li>
             </ul>
 
             <h2>Feature Spotlight</h2>
             <ul>
-              <li><a href="TODO" target="_blank">TODO</a></li>
+              <li><a href="https://reactjs.org/docs/higher-order-components.html" target="_blank">Higher Order Components</a></li>
             </ul>
           </>
         );
       } else {
         helpDetails = (
           <>
-            Instructions will show up here during Phase 2
+            Instructions will show up here during Activity 4
           </>
         );
       }
       break;
     case CONFIG.ROUTE.ROOT:
-      if (CONFIG.PHASE >= 3) {
+      if (CONFIG.ACTIVITY >= 5) {
         helpDetails = (
           <>
+            <img className="banner" src={disneyFireworks} />
+
             <h2>Requirements</h2>
-            <h3>Task 1: Customer Access Control <span className="eta"><img className="clock" src={clock} /> 15 min</span></h3>
+            <h3>Task 1: Customer Access Control <span className="eta"><img className="clock" src={clock} /> 60 minutes</span></h3>
             <ul>
-              <li>If you finish early, there is a value on each menu item called "type" - this refers to whether or not the item has alcohol in it.</li>
+              <li>Every park in all of Disney World needs to be child-proofed!</li>
               <li>
-                Establish a way to consider whether or not a specific user ("customer") is above the legal drinking
-                age (21). If they are under 21, they should not be allowed to purchase alcoholic items.
+                Work with everyone assigned to your Disney World group to devise a React Context component, or set of
+                components, that provides all parks and all of Disney World, with the ability to toggle between "adult mode" and "child mode"
               </li>
+              <li>"child mode" should be the default with the option to elevate to "adult mode"</li>
+              <li>
+                Two buttons "Child" and "Adult" should be added to the <pre>/captain-only/DisneyWorld.tsx</pre> These buttons
+                should be visible everywhere in Disney World
+              </li>
+              <li>The React Context component(s) should be added to <pre>/captain-only/DisneyWorld.tsx</pre></li>
+              <li>Congratulations, you've learned enough React to be a captain!</li>
             </ul>
-            <h3>Task 2: TODO <span className="eta"><img className="clock" src={clock} /> 30 min</span></h3>
+
+            <h3>Task 2: Park Updates <span className="eta"><img className="clock" src={clock} /> 30 minutes</span></h3>
             <ul>
-              <li>TODO</li>
+              <li>
+                Once complete, each team member should use the new Context component to update their park's features to
+                be child proofed:
+                <ul>
+                  <li>
+                    <strong>Animal Kingdom</strong>
+                    <ul>
+                      <li>Only adults are allowed to purchase alcoholic beverages from Rainforest Cafe</li>
+                      <li>Only adults are allowed to approach Lions</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Blizzard Beach</strong>
+                    <ul>
+                      <li>Only adults are allowed to purchase alcoholic beverages from Lottawatta Lodge</li>
+                      <li>Only adults are allowed in Runoff Rapids</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Epcot</strong>
+                    <ul>
+                      <li>Only adults are allowed to purchase alcoholic beverages from Space 220</li>
+                      <li>Only adults are allowed to travel all the way to Saturn</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Magic Kingdom</strong>
+                    <ul>
+                      <li>Only adults are allowed to purchase alcoholic beverages from Liberty Tree Tavern</li>
+                      <li>Only adults are allowed to cast Lightning spells</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
             </ul>
 
             <h3>Task 3: Bonus!</h3>
             <ul>
-              <li>If you finish early, add an additional creative feature or functionality. This will help make your case for the cash prize at the end!</li>
+              <li>Building Disney World is a huge endeavour; we could never have done it without you help! Give yourself a pat on the back!</li>
             </ul>
 
             <h2>Feature Spotlight</h2>
             <ul>
-              <li><a href="TODO" target="_blank">TODO</a></li>
+              <li><a href="https://reactjs.org/docs/context.html" target="_blank">React Context</a></li>
+              <li><a href="https://reactjs.org/docs/hooks-reference.html#usecontext" target="_blank">useContext Hook</a></li>
             </ul>
           </>
         );
       } else {
         helpDetails = (
           <>
-            Instructions will show up here during Phase 3
+            Instructions will show up here during Activity 5
           </>
         );
       }

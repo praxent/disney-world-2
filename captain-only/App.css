@@ -69,36 +69,6 @@ a {
   white-space: nowrap;
 }
 
-.label.magic-kingdom {
-  left: 410px;
-  top: -870px;
-  padding: 10px 25px;
-}
-
-.label.blizzard-beach {
-  left: 120px;
-  top: -290px;
-  padding: 10px 65px;
-}
-
-.label.animal-kingdom {
-  left: -370px;
-  top: -465px;
-  padding: 10px 70px;
-}
-
-.label.epcot {
-  left: 0px;
-  top: -460px;
-}
-
-.label.activity1,
-.label.activity2,
-.label.activity3 {
-  left: 0px;
-  top: -900px;
-}
-
 .pulse {
   transform: scale(1);
   animation: pulse 2s infinite;
