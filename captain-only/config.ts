@@ -1,5 +1,5 @@
 export const CONFIG = {
-  ACTIVITY: 1,
+  ACTIVITY: 2,
   ROUTE: {
     ROOT: "/",
     ANY: "*",
