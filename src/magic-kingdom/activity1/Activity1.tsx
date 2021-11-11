@@ -31,11 +31,14 @@ const Styles = styled.div`
 `;
 
 function Activity1() {
-  const [ride, setRide] = useState(false);
+  var [ride, setRide] = useState(false);
   return (
     <Styles>
       <div className="container">
         Hello from Activity 1 Magic Kingdom
+        <button onClick={() =>  {
+            setRide(!ride);
+          } }>toggle ride</button>
         <div className={ride ? "ride-animation" : ""}><img src={boatImage}/></div>;
       </div>
       
