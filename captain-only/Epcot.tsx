@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import epcot from "./images/epcot.gif";
 import {Link} from "react-router-dom";
 import {CONFIG} from "./config";
@@ -21,6 +21,25 @@ const Styles = styled.div`
   }
 `;
 
+function Activity1(props) {
+    const [checked, setChecked] = useState(false);
+    const toggleChecked = () => setChecked(value => !value);
+    return (
+        <Styles>
+            <div className="container">
+                Hello from Activity 1 Epcot
+                we are  {checked ? 'on the Ride!' : 'not Riding :('}
+                <img src='../captain-only/images/spaceship-earth.jpg' className={checked ? 'rotate' : ''} />
+                <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={toggleChecked}
+                />
+            </div>
+        </Styles>
+    )
+}
+
 function Epcot() {
   return (
     <Styles className="park epcot flex-column">
@@ -31,7 +50,8 @@ function Epcot() {
             {CONFIG.ACTIVITY >= 1 && <Link to={CONFIG.ROUTE.EPCOT_A1}><span className="label pulse activity1">Spaceship Earth</span></Link>}
             {CONFIG.ACTIVITY >= 2 && <Link to={CONFIG.ROUTE.EPCOT_A2}><span className="label pulse activity2">Space 220</span></Link>}
             {CONFIG.ACTIVITY >= 3 && <Link to={CONFIG.ROUTE.EPCOT_A3}><span className="label pulse activity3">Universe of Energy</span></Link>}
-          </div>
+                  </div>
+           <Activity1 value='something' setter='else'/>
         </div>
       </div>
     </Styles>
