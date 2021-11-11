@@ -21,6 +21,8 @@ const Styles = styled.div`
     color: white;
     background-color: rgba(0,0,0,0.7);
     padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
   }
 
   .products {
@@ -35,20 +37,48 @@ const Styles = styled.div`
 
   .product {
     border: 1px solid white;
-    margin: 5px;
+    margin: 10px;
     padding: 5px;
     width: 200px;
     height: 200px;
     border-radius: 5px;
+    cursor: pointer;
+  }
+  .product:hover {
+    transform: scale(1.02);
+  }
+  .product:active {
+    transform: scale(0.98);
+  }
+
+  .product-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .product-description {
+    font-size: 0.8em;
+  }
+  .product-quantity {
+    font-size: 1em;
   }
 `;
 
 function Activity2() {
   const [menu, setMenu] = useState([]);
+
   const fetchMenu = () => {
     fetch("http://localhost:4000/rainforest_cafe")
       .then(response => response.json())
       .then(data => setMenu(data));
+  };
+
+  const buyProduct = (id) => {
+    const index = menu.findIndex(item => item.id === id);
+    if(index) {
+      const newMenu = [...menu];
+      newMenu[index].quantity--;
+      setMenu(newMenu);
+    }
   };
 
   useEffect( () => {
@@ -69,11 +99,16 @@ function Activity2() {
           <div className="products">
             {menu.map((item) => {
               return (
-                <div key={item.id} className="product">
-                  <p>{item.name}</p>
-                  <p>{item.description}</p>
-                  <p>{item.quantity}</p>
-                </div>
+                <button
+                  key={item.id}
+                  className="product"
+                  disabled={item.quantity === 0}
+                  onClick={() => buyProduct(item.id)}
+                >
+                  <p className="product-title">{item.name}</p>
+                  <p className="product-description">{item.description}</p>
+                  <p> Available: <span className="product-quantity">{item.quantity}</span></p>
+                </button>
               );
             })}
           </div>
