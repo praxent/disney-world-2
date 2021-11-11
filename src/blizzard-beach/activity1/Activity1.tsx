@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 
+import RideDescription from "./ekenecomponents/RideDescription";
+
 const Styles = styled.div`
   color: red;
   
@@ -17,20 +19,12 @@ function Activity1() {
     setRiding(!riding)
   }
 
-  function RideDescription(){
-    if(riding){
-      return <strong><span> A person moving down the slide </span></strong>
-    }
-
-    return <span> Person not sliding </span>
-  }
-
   return (
     <>
       <div className="container">
         <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjemB1JAjmKfSCuQMNFz1X_c4Oc9ExQhEgAJG1svHdDJiDbJKPCTy_uOtTB-u9Gr2xExw&usqp=CAU" />
         <br/>
-       <RideDescription />
+       <RideDescription riding = {riding}/>
         <br/>
         <button onClick = {ToggleRiding}> Toggle Riding </button>
       </div>
