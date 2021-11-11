@@ -66,7 +66,6 @@ const Styles = styled.div`
 
 function Activity1() {
   const [shooting, setShooting] = useState(false);
-  const onClick = () => setShooting(!shooting);
   return (
     <Styles>
       <div className="container">
@@ -77,13 +76,20 @@ function Activity1() {
             <img className="target" src={target} alt="target" />
             {shooting && <img className="splash" src={splash} alt="splash" />}
           </div>
-          <button onClick={onClick} className="water-gun-trigger">
-            <img className="waterGun" src={waterGun} alt="water gun" />
-          </button>
+          <SquirtGun setShooting={setShooting} shooting={shooting}/>
         </div>
       </div>
     </Styles>
   )
 }
+
+function SquirtGun(props) {
+  const onClick = () => props.setShooting(!props.shooting);
+  return (
+    <button onClick={onClick} className="water-gun-trigger">
+      <img className="waterGun" src={waterGun} alt="water gun" />
+    </button>
+  )
+} 
 
 export default Activity1
