@@ -74,7 +74,7 @@ function Activity2() {
 
   const buyProduct = (id) => {
     const index = menu.findIndex(item => item.id === id);
-    if(index) {
+    if(index>-1) {
       const newMenu = [...menu];
       newMenu[index].quantity--;
       setMenu(newMenu);
@@ -92,10 +92,11 @@ function Activity2() {
     <Styles>
       <div className="container">
         <div className="content">
-          <h1>Activity 2</h1>
-          <p>
+          <h1>Menu</h1>
+          <i>
           Welcome to the wildest food place in the world!
-          </p>
+          </i>
+          <hr />
           <div className="products">
             {menu.map((item) => {
               return (
