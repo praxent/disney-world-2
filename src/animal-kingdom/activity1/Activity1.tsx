@@ -11,13 +11,15 @@ const Styles = styled.div`
   .container {
     max-width: 900px;
     margin: 0 auto;
+    text-align: center;
   }
   .game {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    padding: 0 20px;
+    align-items: center;
+    padding: 0 5px;
+    max-width: 100px;
   }
   .target-container {
     position: relative;
@@ -37,6 +39,18 @@ const Styles = styled.div`
     position: absolute;
     top: 20px;
     left: 20px;
+    animation:pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(0.95);
+    }
   }
   .waterGun {
     height: 50px;
@@ -66,7 +80,6 @@ const Styles = styled.div`
 
 function Activity1() {
   const [shooting, setShooting] = useState(false);
-  const onClick = () => setShooting(!shooting);
   return (
     <Styles>
       <div className="container">
@@ -77,13 +90,20 @@ function Activity1() {
             <img className="target" src={target} alt="target" />
             {shooting && <img className="splash" src={splash} alt="splash" />}
           </div>
-          <button onClick={onClick} className="water-gun-trigger">
-            <img className="waterGun" src={waterGun} alt="water gun" />
-          </button>
+          <SquirtGun setShooting={setShooting} shooting={shooting}/>
         </div>
       </div>
     </Styles>
   )
 }
+
+function SquirtGun(props) {
+  const onClick = () => props.setShooting(!props.shooting);
+  return (
+    <button onClick={onClick} className="water-gun-trigger">
+      <img className="waterGun" src={waterGun} alt="water gun" />
+    </button>
+  )
+} 
 
 export default Activity1
