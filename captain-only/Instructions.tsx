@@ -241,7 +241,7 @@ function renderHelpDetails(pathname : string) {
           <ul>
             <li>Display an image of the Lottawatta Lodge at Disney's Blizzard Beach.</li>
             <li>Make a GET call (could be as simple as using 'fetch') to the mock API in React's useEffect hook to receive the menu of drinks.</li>
-            <li>Your mock API endpoint will be <pre>http://localhost:4000/lottawotta_lodge</pre></li>
+            <li>Your mock API endpoint will be <pre>http://localhost:4000/lottawatta_lodge</pre></li>
             <li>Use React's useState hook to set the returned data as a state variable - should you have multiple separate useState declarations, or save everything in one useState array? Who knows!</li>
           </ul>
 
