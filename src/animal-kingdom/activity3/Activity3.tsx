@@ -41,7 +41,22 @@ const Styles = styled.div`
   .container {
     max-width: 900px;
     margin: 0 auto;
+    background-image: url("https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/1600/900/75/dam/wdpro-assets/gallery/attractions/animal-kingdom/conservation-station/conservation-station-gallery00.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
   }
+
+  .container-shadow {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: white;
+    overflow: auto;
+  }
+
   .header {
     text-align: center;
     margin-bottom: 20px;
@@ -72,15 +87,42 @@ const Styles = styled.div`
   .nav-item:active {
     transform: translateY(2px);
   }
+
+  .animal-wrapper {
+    margin: 0 20px 0 20px;
+  }
+  .animal-name {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .animal-image {
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+    shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  .animal-image-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .animal-description-wrapper {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
 `;
 
 
 function Activity3() {
   return (
     <Routes>
-      <Route path="/" element={<Activity3Root />}>
-        <Route path="lion" element={<Animal animal={ANIMALS.LION} />}/>
-        <Route path="zebra" element={<Animal animal={ANIMALS.ZEBRA} />}/>
+      <Route path="*" element={<Activity3Root />}>
+        <Route path={ROUTES.VISIT_LION} element={<Animal animal={ANIMALS.LION} />}/>
+        <Route path={ROUTES.VISIT_ZEBRA} element={<Animal animal={ANIMALS.ZEBRA} />}/>
+        <Route path={ROUTES.VISIT_GIRAFFE} element={<Animal animal={ANIMALS.GIRAFFE} />}/>
+        <Route path={ROUTES.VISIT_CHIMPANZEE} element={<Animal animal={ANIMALS.CHIMPANZEE} />}/>
       </Route>
     </Routes>
   )
@@ -90,17 +132,18 @@ function Activity3Root() {
   return (
     <Styles>
       <div className="container">
-        <h1>Welcome to the Zoo</h1>
-        <nav className="header">
-          <Link className="nav-item" to="/animal-kingdom/activity3/lion">Lion</Link>
-          <Link className="nav-item" to="/animal-kingdom/activity3/zebra">Zebra</Link>
-          {/* <Link className="nav-item" to={ROUTES.VISIT_GIRAFFE}>Giraffe</Link>
-          <Link className="nav-item" to={ROUTES.VISIT_ZEBRA}>Zebra</Link>
-          <Link className="nav-item" to={ROUTES.VISIT_CHIMPANZEE}>Chimpanzee</Link> */}
-        </nav>
-        <div>
-          HERE BE CONTENT:
-          <Outlet />
+        <div className="container-shadow">
+          <h1>Welcome to the Zoo</h1>
+          <nav className="header">
+            <Link className="nav-item" to="/animal-kingdom/activity3/">Lobby</Link>
+            <Link className="nav-item" to={ROUTES.VISIT_LION}>Lion</Link>
+            <Link className="nav-item" to={ROUTES.VISIT_ZEBRA}>Zebra</Link>
+            <Link className="nav-item" to={ROUTES.VISIT_GIRAFFE}>Giraffe</Link>
+            <Link className="nav-item" to={ROUTES.VISIT_CHIMPANZEE}>Chimpanzee</Link>
+          </nav>
+          <div>
+            <Outlet />
+          </div>
         </div>
       </div>
     </Styles>
@@ -108,11 +151,27 @@ function Activity3Root() {
 }
 
 function Animal({animal}) {
+  React.useEffect(() => {
+    const audioElement = new Audio(animal.sound);
+    audioElement.addEventListener('loadeddata', () => {
+      audioElement.play();
+    })
+    return () => {
+      audioElement.pause();
+      audioElement.currentTime = 0;
+      audioElement.src = "";
+      audioElement.removeEventListener('loadeddata', () => {})
+    }
+  });
   return (
-    <div>
-      <h1>{animal.name}</h1>
-      <p>{animal.description}</p>
-      <img src={animal.image} alt={animal.name} />
+    <div className="animal-wrapper">
+      <h1 className="animal-name">{animal.name}</h1>
+      <div className="animal-image-wrapper">
+        <img src={animal.image} alt={animal.name} className="animal-image"/>
+      </div>
+      <div className="animal-description-wrapper">
+        <p>{animal.description}</p>
+      </div>
     </div>
   )
 }
