@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
 import styled from "styled-components";
+import UserContext from '../../../captain-only/user-context';
 import libertyTree from './liberty-tree-tavern.jpg';
 
 const Styles = styled.div`
@@ -13,30 +14,33 @@ const Styles = styled.div`
 
 function Activity2() {
   var [items, setItems] = useState([]);
+  const user = useContext(UserContext);
   useEffect(() => {
-  const url = "http://localhost:4000/liberty_tree";
+    const url = "http://localhost:4000/liberty_tree";
 
-  const fetchData = async () => {
-      try {
-          const response = await fetch(url);
-          const json = await response.json();
-          setItems(json);
-          console.dir(json);
-      } catch (error) {
-          console.log("error", error);
-      }
-    };
-    fetchData();
+    const fetchData = async () => {
+        try {
+            const response = await fetch(url);
+            const json = await response.json();
+            var filtered = json.filter((el) => el.type.toLowerCase() == user);
+            console.dir(filtered);
+            setItems(filtered);
+        } catch (error) {
+            console.log("error", error);
+        }
+      };
+      fetchData();
   }, []);
 
-  function buyItem(item : object, index : string) {
-    let newItems = items;
-    newItems[parseInt(index)].quantity--;
+  function buyItem(item : object, id : string) {
+    let newItems = items.map(item =>
+      {
+        if (item.id == id){
+          return {...item, quantity: item.quantity - 1};
+        }
+        return item;
+      });
     setItems(newItems);
-    // setItems({
-    //   items.map(el => (el.id === index ? Object.assign({}, el, { item }) : el))
-    // });
-    console.log("bought " + item.name + ". Remaining: " + item.quantity);
   }
 
   return (
@@ -47,13 +51,13 @@ function Activity2() {
         <img src={libertyTree}/>;
         <br />
         <div className="items-grid">
-          {items.map((item,index)=>{
-              return <div className="item-row">
+          {items.map((item)=> (
+              <div className="item-row">
                 <div className="item-col">{item.name}</div>
                 <div className="item-col">{item.quantity}</div>
-                <div className="item-col"><button onClick={() => buyItem(item, index)}>Buy one!</button></div>
+                <div className="item-col"><button onClick={() => buyItem(item, item.id)}>Buy one!</button></div>
               </div>
-          })}
+          ))}
         </div>
       </div>
     </Styles>
