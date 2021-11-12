@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
+import Wallet from '../Wallet/Wallet';
+
 import splash from "./images/splash.png";
 import target from "./images/target.png";
 import waterGun from "./images/water-gun.svg";
@@ -98,7 +100,7 @@ const Styles = styled.div`
   }
 `;
 
-function Activity1() {
+function Activity1Component( props: any ) {
   const [shooting, setShooting] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(0); // 0-800
 
@@ -126,6 +128,8 @@ function Activity1() {
             setSliderPosition={setSliderPosition}
             shooting={shooting}
             position={sliderPosition}
+            balance={props.balance}
+            setBalance={props.setBalance}
           />
         </div>
         {sliderPosition >= 800 && 
@@ -141,16 +145,25 @@ function Activity1() {
 
 function SquirtGun(props) {
   const onClick = async () => {
-    props.setShooting(!props.shooting);
-    if (props.position < 800 && !props.shooting) {
-      props.setSliderPosition(props.position + 100);
+    if(props.balance > 0) {
+      props.setShooting(!props.shooting);
+      if (props.position < 800 && !props.shooting) {
+        props.setBalance(props.balance - 1);
+        props.setSliderPosition(props.position + 100);
+      }
     }
   }
   return (
-    <button onClick={onClick} className="water-gun-trigger">
+    <button
+      onClick={onClick}
+      className="water-gun-trigger"
+      disabled={props.position >= 800 || props.balance === 0}
+    >
       <img className="waterGun" src={waterGun} alt="water gun" />
     </button>
   )
 } 
+
+const Activity1 = Wallet(Activity1Component);
 
 export default Activity1
