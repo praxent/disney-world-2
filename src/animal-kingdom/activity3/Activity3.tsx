@@ -164,7 +164,7 @@ function Activity3Root({balance, setBalance}) {
           <h1>Welcome to the Zoo</h1>
           <nav className="header">
             <Link className="nav-item" to="/animal-kingdom/activity3">Lobby</Link>
-            <Link className={`nav-item ${ balance <= 0 || user === 'Child' ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_LION} onClick={getTicket}>Lion</Link>
+            <Link className={`nav-item ${ balance <= 0 || user === 'child' ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_LION} onClick={getTicket}>Lion</Link>
             <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_ZEBRA} onClick={getTicket}>Zebra</Link>
             <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_GIRAFFE} onClick={getTicket}>Giraffe</Link>
             <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_CHIMPANZEE} onClick={getTicket}>Chimpanzee</Link>

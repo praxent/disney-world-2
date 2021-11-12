@@ -30,7 +30,7 @@ import AccessControl from './AccessControl';
 import UserContext from './user-context';
 
 function App() {
-  const [user, setUser] = React.useState('Child');
+  const [user, setUser] = React.useState('child');
   return (
     <>
       <UserContext.Provider value={user}>

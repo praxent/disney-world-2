@@ -112,7 +112,7 @@ function Activity2Component(props: any) {
                 <button
                   key={item.id}
                   className="product"
-                  disabled={item.quantity === 0 || props.balance === 0 || (item.type === 'Adult' && user !== 'Adult')}
+                  disabled={item.quantity === 0 || props.balance === 0 || (item.type.toLowerCase() === 'adult' && user !== 'adult')}
                   onClick={() => buyProduct(item.id)}
                 >
                   <p className="product-title">{item.name}</p>

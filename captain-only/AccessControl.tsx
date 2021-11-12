@@ -21,7 +21,7 @@ const Styles = styled.div`
 
 
 function AccessControl({user, setUser}) {
-    const onClick = () => { setUser(user === 'Child' ? 'Adult' : 'Child'); };
+    const onClick = () => { setUser(user === 'child' ? 'adult' : 'child'); };
     return (
         <Styles>
             <div className="access-control">
