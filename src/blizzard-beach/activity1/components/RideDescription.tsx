@@ -9,4 +9,4 @@ function RideDescription(props: any){
 }
 
 
-  export default RideDescription;
+export default RideDescription;

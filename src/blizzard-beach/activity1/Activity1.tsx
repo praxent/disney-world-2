@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 
-import RideDescription from "./ekenecomponents/RideDescription";
+import RideDescription from "./components/RideDescription";
 
 const Styles = styled.div`
   color: red;
