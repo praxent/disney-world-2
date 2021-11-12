@@ -6,14 +6,25 @@ import Wallet from '../Wallet/Wallet';
 import splash from "./images/splash.png";
 import target from "./images/target.png";
 import waterGun from "./images/water-gun.svg";
+import game from './images/game.png';
 
 const Styles = styled.div`
-  color: red;
-  
   .container {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+    background-image: url(${game});
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .content {
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    padding: 5px;
+    border-radius: 10px;
   }
   .game {
     display: flex;
@@ -90,7 +101,6 @@ const Styles = styled.div`
     border-radius: 5px;
     background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
     position: relative;
   }
   .slider-image {
@@ -107,37 +117,39 @@ function Activity1Component( props: any ) {
   return (
     <Styles>
       <div className="container">
-        <h1>Fossil Fun Games</h1>
-        <div className="slider-container">
-          <div className="slider">
-            <img
-              src="https://www.pikpng.com/pngl/b/381-3817218_jurassic-world-dinosaur-png-png-download-jurassic-park.png"
-              alt="dino" 
-              className="slider-image"
-              style={{ left: sliderPosition }} 
+        <div className="content">
+          <h1>Fossil Fun Games</h1>
+          <div className="slider-container">
+            <div className="slider">
+              <img
+                src="https://www.pikpng.com/pngl/b/381-3817218_jurassic-world-dinosaur-png-png-download-jurassic-park.png"
+                alt="dino" 
+                className="slider-image"
+                style={{ left: sliderPosition }} 
+              />
+            </div>
+          </div>
+          <div className="game">
+            <div className="target-container">
+              <img className="target" src={target} alt="target" />
+              {shooting && <img className="splash" src={splash} alt="splash" />}
+            </div>
+            <SquirtGun
+              setShooting={setShooting}
+              setSliderPosition={setSliderPosition}
+              shooting={shooting}
+              position={sliderPosition}
+              balance={props.balance}
+              setBalance={props.setBalance}
             />
           </div>
+          {sliderPosition >= 800 && 
+            <div>
+              <h2>You Win! Have a dino:</h2>
+              <img src="https://target.scene7.com/is/image/Target/GUEST_60454535-c70a-4d3c-abe8-a2adb402699a?wid=488&hei=488&fmt=pjpeg" alt="" />
+            </div>
+          }
         </div>
-        <div className="game">
-          <div className="target-container">
-            <img className="target" src={target} alt="target" />
-            {shooting && <img className="splash" src={splash} alt="splash" />}
-          </div>
-          <SquirtGun
-            setShooting={setShooting}
-            setSliderPosition={setSliderPosition}
-            shooting={shooting}
-            position={sliderPosition}
-            balance={props.balance}
-            setBalance={props.setBalance}
-          />
-        </div>
-        {sliderPosition >= 800 && 
-          <div>
-            <h2>You Win! Have a dino</h2>
-            <img src="https://target.scene7.com/is/image/Target/GUEST_60454535-c70a-4d3c-abe8-a2adb402699a?wid=488&hei=488&fmt=pjpeg" alt="" />
-          </div>
-        }
       </div>
     </Styles>
   )
