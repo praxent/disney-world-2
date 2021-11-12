@@ -152,11 +152,12 @@ function Activity3Root() {
         <div className="container-shadow">
           <h1>Welcome to the Zoo</h1>
           <nav className="header">
-            <Link className="nav-item" to="/animal-kingdom/activity3/">Lobby</Link>
+            <Link className="nav-item" to="/animal-kingdom/activity3">Lobby</Link>
             <Link className="nav-item" to={ROUTES.VISIT_LION}>Lion</Link>
             <Link className="nav-item" to={ROUTES.VISIT_ZEBRA}>Zebra</Link>
             <Link className="nav-item" to={ROUTES.VISIT_GIRAFFE}>Giraffe</Link>
             <Link className="nav-item" to={ROUTES.VISIT_CHIMPANZEE}>Chimpanzee</Link>
+            <Link className="nav-item" to="/animal-kingdom">Exit</Link>
           </nav>
           <div>
             <Outlet />
