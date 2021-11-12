@@ -26,36 +26,42 @@ import {default as MagicKingdomActivity1} from "../src/magic-kingdom/activity1/A
 import {default as MagicKingdomActivity2} from "../src/magic-kingdom/activity2/Activity2";
 import {default as MagicKingdomActivity3} from "../src/magic-kingdom/activity3/Activity3";
 
-function App() {
+import AccessControl from './AccessControl';
+import UserContext from './user-context';
 
+function App() {
+  const [user, setUser] = React.useState('child');
   return (
     <>
-      <Instructions />
-      <Routes>
-        <Route path={CONFIG.ROUTE.ROOT} element={<DisneyWorld/>}/>
+      <UserContext.Provider value={user}>
+        <AccessControl user={user} setUser={setUser}/>
+        <Instructions />
+        <Routes>
+          <Route path={CONFIG.ROUTE.ROOT} element={<DisneyWorld/>}/>
 
-        <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM} element={<AnimalKingdom/>}/>
-        <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A1} element={<AnimalKingdomActivity1/>}/>
-        <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A2} element={<AnimalKingdomActivity2/>}/>
-        <Route path={`${CONFIG.ROUTE.ANIMAL_KINGDOM_A3}/*`} element={<AnimalKingdomActivity3/>}/>
+          <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM} element={<AnimalKingdom/>}/>
+          <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A1} element={<AnimalKingdomActivity1/>}/>
+          <Route path={CONFIG.ROUTE.ANIMAL_KINGDOM_A2} element={<AnimalKingdomActivity2/>}/>
+          <Route path={`${CONFIG.ROUTE.ANIMAL_KINGDOM_A3}/*`} element={<AnimalKingdomActivity3/>}/>
 
-        <Route path={CONFIG.ROUTE.BLIZZARD_BEACH} element={<BlizzardBeach/>}/>
-        <Route path={CONFIG.ROUTE.BLIZZARD_BEACH_A1} element={<BlizzardBeachActivity1/>}/>
-        <Route path={CONFIG.ROUTE.BLIZZARD_BEACH_A2} element={<BlizzardBeachActivity2/>}/>
-        <Route path={`${CONFIG.ROUTE.BLIZZARD_BEACH_A3}/*`} element={<BlizzardBeachActivity3/>}/>
+          <Route path={CONFIG.ROUTE.BLIZZARD_BEACH} element={<BlizzardBeach/>}/>
+          <Route path={CONFIG.ROUTE.BLIZZARD_BEACH_A1} element={<BlizzardBeachActivity1/>}/>
+          <Route path={CONFIG.ROUTE.BLIZZARD_BEACH_A2} element={<BlizzardBeachActivity2/>}/>
+          <Route path={`${CONFIG.ROUTE.BLIZZARD_BEACH_A3}/*`} element={<BlizzardBeachActivity3/>}/>
 
-        <Route path={CONFIG.ROUTE.EPCOT} element={<Epcot/>}/>
-        <Route path={CONFIG.ROUTE.EPCOT_A1} element={<EpcotActivity1/>}/>
-        <Route path={CONFIG.ROUTE.EPCOT_A2} element={<EpcotActivity2/>}/>
-        <Route path={`${CONFIG.ROUTE.EPCOT_A3}/*`} element={<EpcotActivity3/>}/>
+          <Route path={CONFIG.ROUTE.EPCOT} element={<Epcot/>}/>
+          <Route path={CONFIG.ROUTE.EPCOT_A1} element={<EpcotActivity1/>}/>
+          <Route path={CONFIG.ROUTE.EPCOT_A2} element={<EpcotActivity2/>}/>
+          <Route path={`${CONFIG.ROUTE.EPCOT_A3}/*`} element={<EpcotActivity3/>}/>
 
-        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM} element={<MagicKingdom/>}/>
-        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A1} element={<MagicKingdomActivity1/>}/>
-        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A2} element={<MagicKingdomActivity2/>}/>
-        <Route path={`${CONFIG.ROUTE.MAGIC_KINGDOM_A3}/*`} element={<MagicKingdomActivity3/>}/>
+          <Route path={CONFIG.ROUTE.MAGIC_KINGDOM} element={<MagicKingdom/>}/>
+          <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A1} element={<MagicKingdomActivity1/>}/>
+          <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A2} element={<MagicKingdomActivity2/>}/>
+          <Route path={`${CONFIG.ROUTE.MAGIC_KINGDOM_A3}/*`} element={<MagicKingdomActivity3/>}/>
 
-        <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
-      </Routes>
+          <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
+        </Routes>
+      </UserContext.Provider>
     </>
   )
 }

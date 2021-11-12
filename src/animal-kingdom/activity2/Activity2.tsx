@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 import Wallet from '../Wallet/Wallet';
 
-import rainForestCafe from "./images/Rainforest-Cafe.jpg"
+import UserContex from './../../../captain-only/user-context';
+
+import rainForestCafe from "./images/Rainforest-Cafe.jpg";
+
 const Styles = styled.div`
   color: blue;
   
@@ -67,6 +70,7 @@ const Styles = styled.div`
 
 function Activity2Component(props: any) {
   const [menu, setMenu] = useState([]);
+  const user = React.useContext(UserContex);
 
   const fetchMenu = () => {
     fetch("http://localhost:4000/rainforest_cafe")
@@ -99,7 +103,7 @@ function Activity2Component(props: any) {
         <div className="content">
           <h1>Menu</h1>
           <i>
-          Welcome to the wildest food place in the world!
+          Welcome to the wildest food place in the world! {user}
           </i>
           <hr />
           <div className="products">
