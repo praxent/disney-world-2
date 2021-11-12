@@ -7,7 +7,7 @@ export const CONFIG = {
     ANIMAL_KINGDOM: "/animal-kingdom",
     ANIMAL_KINGDOM_A1: "/animal-kingdom/activity1",
     ANIMAL_KINGDOM_A2: "/animal-kingdom/activity2",
-    ANIMAL_KINGDOM_A3: "/animal-kingdom/activity3/*",
+    ANIMAL_KINGDOM_A3: "/animal-kingdom/activity3",
     
 
     BLIZZARD_BEACH: "/blizzard-beach",
