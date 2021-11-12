@@ -17,15 +17,27 @@ function Activity2() {
     const [count, setCount] = useState(0);
     const [menu, setMenu] = useState(Array);
     useEffect(() => {
-        document.title = `You clicked ${count} times`;
+        document.title = `drinks in 220 Restaurant`;
     });
+    function substract(menuItem) {
+        const newMenu = [...menu];
+
+        let indexFound = -1;
+        newMenu.forEach((newMenuItem,index) => {
+            if (newMenuItem.id === menuItem.id && newMenuItem.quantity > 0) {
+                newMenuItem.quantity -= 1;
+            } 
+        });
+        setMenu(newMenu);
+    }
+
     return (
         <Styles>
             <div className="container">
                 <img src='http://localhost:3000/captain-only/images/space-220.jpg' />
             </div>
             <div>
-                <p>You clicked {count} times</p>
+                <p>Click below to  show drinks in 220 Restaurant</p>
                 <button onClick={() => {
                     setCount(count + 1);
                     fetch('http://localhost:4000/space_220')
@@ -35,18 +47,21 @@ function Activity2() {
                             setMenu(data);
                         });
                 }}>
-                    Click me
+                    Get Menu
                 </button>
                 <ul>
-                    {menu.map(name => (
-                        <li>
-                            item: {name.name} description: {name.description} add to cart
+                    {menu.map(menuItem => (
+                        <li onClick={() => { substract(menuItem) }}>
+                            <a href="#">
+                                {menuItem.name} remaining items {menuItem.quantity}
+                            </a>
                         </li>
                     ))}
                 </ul>
             </div>
         </Styles >
     )
+
 }
 
 export default Activity2
