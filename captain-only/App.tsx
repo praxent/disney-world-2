@@ -25,6 +25,7 @@ import MagicKingdom from ".//MagicKingdom";
 import {default as MagicKingdomActivity1} from "../src/magic-kingdom/activity1/Activity1";
 import {default as MagicKingdomActivity2} from "../src/magic-kingdom/activity2/Activity2";
 import {default as MagicKingdomActivity3} from "../src/magic-kingdom/activity3/Activity3";
+import { LightSpell, DarkSpell } from "../src/magic-kingdom/activity3/Activity3"
 
 function App() {
 
@@ -52,7 +53,12 @@ function App() {
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM} element={<MagicKingdom/>}/>
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A1} element={<MagicKingdomActivity1/>}/>
         <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A2} element={<MagicKingdomActivity2/>}/>
-        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A3} element={<MagicKingdomActivity3/>}/>
+        <Route path={CONFIG.ROUTE.MAGIC_KINGDOM_A3} element={<MagicKingdomActivity3.Activity3/>}>
+          <Route path="light" element={<MagicKingdomActivity3.LightSpell />}/>
+          <Route path="dark" element={<MagicKingdomActivity3.DarkSpell />}/>
+          <Route path="fire" element={<MagicKingdomActivity3.FireSpell />}/>
+          <Route path="water" element={<MagicKingdomActivity3.WaterSpell />}/>
+        </Route>
 
         <Route path={CONFIG.ROUTE.ANY} element={<DisneyWorld/>}/>
       </Routes>
