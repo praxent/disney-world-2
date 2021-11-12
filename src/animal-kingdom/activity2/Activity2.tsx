@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
 
+import Wallet from '../Wallet/Wallet';
+
 import rainForestCafe from "./images/Rainforest-Cafe.jpg"
 const Styles = styled.div`
   color: blue;
@@ -63,7 +65,7 @@ const Styles = styled.div`
   }
 `;
 
-function Activity2() {
+function Activity2Component(props: any) {
   const [menu, setMenu] = useState([]);
 
   const fetchMenu = () => {
@@ -73,11 +75,14 @@ function Activity2() {
   };
 
   const buyProduct = (id) => {
-    const index = menu.findIndex(item => item.id === id);
-    if(index>-1) {
-      const newMenu = [...menu];
-      newMenu[index].quantity--;
-      setMenu(newMenu);
+    if(props.balance > 0 ) {
+      const index = menu.findIndex(item => item.id === id);
+      if(index>-1) {
+        const newMenu = [...menu];
+        newMenu[index].quantity--;
+        setMenu(newMenu);
+      }
+      props.setBalance(props.balance - 1);
     }
   };
 
@@ -103,7 +108,7 @@ function Activity2() {
                 <button
                   key={item.id}
                   className="product"
-                  disabled={item.quantity === 0}
+                  disabled={item.quantity === 0 || props.balance === 0}
                   onClick={() => buyProduct(item.id)}
                 >
                   <p className="product-title">{item.name}</p>
@@ -118,5 +123,7 @@ function Activity2() {
     </Styles>
   )
 }
+
+const Activity2 = Wallet(Activity2Component);
 
 export default Activity2

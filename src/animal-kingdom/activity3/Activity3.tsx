@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import {Route, Routes, Link, Outlet} from "react-router-dom";
 
+import Wallet from '../Wallet/Wallet';
+
 import cage from "./images/cage.png"
 
 const ROUTES = {
@@ -129,13 +131,16 @@ const Styles = styled.div`
     padding: 10px 20px;
     margin-top: 20px;
   }
+  .disabled-link {
+    pointer-events: none;
+  }
 `;
 
 
-function Activity3() {
+function Activity3Component(props: any) {
   return (
     <Routes>
-      <Route path="*" element={<Activity3Root />}>
+      <Route path="*" element={<Activity3Root balance={props.balance} setBalance={props.setBalance}/>}>
         <Route path={ROUTES.VISIT_LION} element={<Animal animal={ANIMALS.LION} />}/>
         <Route path={ROUTES.VISIT_ZEBRA} element={<Animal animal={ANIMALS.ZEBRA} />}/>
         <Route path={ROUTES.VISIT_GIRAFFE} element={<Animal animal={ANIMALS.GIRAFFE} />}/>
@@ -145,7 +150,10 @@ function Activity3() {
   )
 }
 
-function Activity3Root() {
+function Activity3Root({balance, setBalance}) {
+  const getTicket = () => {
+    setBalance(balance - 1);
+  }
   return (
     <Styles>
       <div className="container">
@@ -153,10 +161,10 @@ function Activity3Root() {
           <h1>Welcome to the Zoo</h1>
           <nav className="header">
             <Link className="nav-item" to="/animal-kingdom/activity3">Lobby</Link>
-            <Link className="nav-item" to={ROUTES.VISIT_LION}>Lion</Link>
-            <Link className="nav-item" to={ROUTES.VISIT_ZEBRA}>Zebra</Link>
-            <Link className="nav-item" to={ROUTES.VISIT_GIRAFFE}>Giraffe</Link>
-            <Link className="nav-item" to={ROUTES.VISIT_CHIMPANZEE}>Chimpanzee</Link>
+            <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_LION} onClick={getTicket}>Lion</Link>
+            <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_ZEBRA} onClick={getTicket}>Zebra</Link>
+            <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_GIRAFFE} onClick={getTicket}>Giraffe</Link>
+            <Link className={`nav-item ${ balance <= 0 ? 'disabled-link' : ''}` }  to={ROUTES.VISIT_CHIMPANZEE} onClick={getTicket}>Chimpanzee</Link>
             <Link className="nav-item" to="/animal-kingdom">Exit</Link>
           </nav>
           <div>
@@ -196,5 +204,8 @@ function Animal({animal}) {
     </div>
   )
 }
+
+
+const Activity3 = Wallet(Activity3Component);
 
 export default Activity3
