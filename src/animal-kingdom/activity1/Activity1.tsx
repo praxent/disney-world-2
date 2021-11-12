@@ -14,7 +14,7 @@ const Styles = styled.div`
     margin: 0 auto;
     text-align: center;
     background-image: url(${game});
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-size: cover;
     background-position: center;
