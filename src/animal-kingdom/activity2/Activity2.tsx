@@ -103,7 +103,7 @@ function Activity2Component(props: any) {
         <div className="content">
           <h1>Menu</h1>
           <i>
-          Welcome to the wildest food place in the world! {user}
+          Welcome to the wildest food place in the world!
           </i>
           <hr />
           <div className="products">
@@ -112,7 +112,7 @@ function Activity2Component(props: any) {
                 <button
                   key={item.id}
                   className="product"
-                  disabled={item.quantity === 0 || props.balance === 0}
+                  disabled={item.quantity === 0 || props.balance === 0 || (item.type === 'Adult' && user !== 'Adult')}
                   onClick={() => buyProduct(item.id)}
                 >
                   <p className="product-title">{item.name}</p>
