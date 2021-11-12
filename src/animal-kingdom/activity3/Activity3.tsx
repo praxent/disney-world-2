@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import {Route, Routes, Link, Outlet} from "react-router-dom";
 
+import cage from "./images/cage.png"
+
 const ROUTES = {
   ROOT: "/",
   VISIT_LION: "lion",
@@ -95,13 +97,28 @@ const Styles = styled.div`
     font-size: 1.5em;
     text-align: center;
   }
+  .animal-image-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .cage {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   .animal-image {
     width: 300px;
     height: auto;
     border-radius: 5px;
     shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+    top: 0;
+    left: 0;
   }
-  .animal-image-wrapper {
+  .center-image {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -166,8 +183,11 @@ function Animal({animal}) {
   return (
     <div className="animal-wrapper">
       <h1 className="animal-name">{animal.name}</h1>
-      <div className="animal-image-wrapper">
-        <img src={animal.image} alt={animal.name} className="animal-image"/>
+      <div className="center-image">
+        <div className="animal-image-wrapper">
+          <img src={animal.image} alt={animal.name} className="animal-image"/>
+          <img src={cage} alt="cage" className="cage"/>
+        </div>
       </div>
       <div className="animal-description-wrapper">
         <p>{animal.description}</p>
